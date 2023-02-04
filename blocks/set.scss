@@ -9,8 +9,8 @@
 }
 
 html {
-  font-size: 0.520835vw; // на разрешении 1920 0ю520835vw === 10px
-  //font-family: 'Inter', sans-serif; //шрифт по умолчанию
+  font-size: 0.69444444444444vw;
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: normal;
   text-rendering: auto;
@@ -24,8 +24,6 @@ body {
   text-rendering: auto;
   margin: 0;
   padding: 0;
-  //color: $color-text-black; //цвет по умолчанию текста
-  //background-color: white; //цвет по умолчанию
 }
 
 a,
@@ -122,23 +120,11 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-
-.container {
-  //width: 117rem;
-  margin: 0 auto;
-}
-
-
-@media (max-width: 48em) {
-  html {
-    //font-size: 5px;
-    font-size: 1.5625vw;
-    //font-size: (100/320) * 5vw; // где 320 это ширина моб макета
-    -webkit-text-size-adjust: none;
-  }
-
-  .container {
-    //padding: 0 3.2rem;
-    width: 100%;
-  }
+.app-container {
+  padding-right: 15rem;
+  padding-left: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }

@@ -8,82 +8,83 @@
 
 	<link rel="stylesheet" href="css/style.css">
 	
-	<script defer src="js/script.js"></script>
+	<script defer src="js/app.js"></script>
 
 	<title>RockScissorsPaper</title>
 </head>
 
 <body>
+	<div class="app-container">
+		 <header class="header game">
+		 	<button type="button" class="button button--style game__button">
+		 		<img class="button__img-fullscreen" src="img/game/full-screen.svg" alt="#">
+		 	</button>
 
-	 <header class="header game">
-	 	<button type="button" class="button button--style game__button">
-	 		<img class="button__img-fullscreen" src="" alt="#">
-	 	</button>
+		 	<h1 class="game__title">Rock-Scissors-Paper</h1>
 
-	 	<h1 class="game__title">Rock-Scissors-Paper</h1>
-
-	 	<ul class="game__settings">
-	 		<li class="game__item">
+		 	<div class="game__settings">
 	 			<button type="button" class="button button--style game__button">
-			 		<img class="button__img-burger" src="" alt="#">
+			 		<img class="button__img-burger" src="img/game/burger.svg" alt="#">
 
-			 		<img class="button__img-cross" src="" alt="#">
+			 		<img class="button__img-cross" src="img/game/cross.svg" alt="#">
 			 	</button>
 
 			 	<button type="button" class="button button--style game__button">
-			 		<img class="button__img-sound" src="" alt="#">
+			 		<img class="button__img-sound" src="img/game/sound.svg" alt="#">
 
-			 		<img class="button__img-mute" src="" alt="#">
+			 		<img class="button__img-mute" src="img/game/mute.svg" alt="#">
 			 	</button>
 
 			 	<button type="button" class="button button--style game__button">
-			 		<img class="button__img-en" src="" alt="#">
+			 		<img class="button__img-en" src="img/game/eng.svg" alt="#">
 
-			 		<img class="button__img-ru" src="" alt="#">
+			 		<img class="button__img-ru" src="img/game/rus.svg" alt="#">
 			 	</button>
-	 		</li>
-	 	</ul>
-	 </header>
+		 	</div>
+		 </header>
 
-	 <main class="main field">
-	 	<div class="field__score score">
-	 		<div class="score__comp count">0</div>
+		 <main class="main field">
+		 	<div class="field__score score">
+		 		<div class="score__comp count">0</div>
+		 		<p class="score__text">Comp</p>
 
-	 		<span>:</span>
+		 		<span>:</span>
 
-	 		<div class="score__user count">0</div>
-	 	</div>
+		 		<div class="score__user count">0</div>
+		 		<p class="score__text">User</p>
+		 	</div>
 
-	 	<div class="field__game">
-	 		<div class="field__game-comp comp">
- 				<button type="button" class="button button--style comp__button-rock rock" data-field="r"></button>
+		 	<div class="field__game">
+		 		<div class="field__game-comp comp">
+	 				<button type="button" class="button button--style field__button comp__button-rock rock" data-field="r"></button>
 
- 				<button type="button" class="button button--style comp__button-scissors scissors" data-field="s"></button>
+	 				<button type="button" class="button button--style field__button comp__button-scissors scissors" data-field="s"></button>
 
- 				<button type="button" class="button button--style comp__button-paper paper" data-field="p"></button>
-	 		</div>
+	 				<button type="button" class="button button--style field__button comp__button-paper paper" data-field="p"></button>
+		 		</div>
 
-	 		<div class="field__game-user user">
- 				<button type="button" class="button button--style user__button-rock rock" data-field="r"></button>
+		 		<div class="field__game-user user">
+	 				<button type="button" class="button button--style field__button user__button-rock rock" data-field="r"></button>
 
- 				<button type="button" class="button button--style user__button-scissors scissors" data-field="s"></button>
+	 				<button type="button" class="button button--style field__button user__button-scissors scissors" data-field="s"></button>
 
- 				<button type="button" class="button button--style user__button-paper paper" data-field="p"></button>
-	 		</div>
-	 	</div>
+	 				<button type="button" class="button button--style field__button user__button-paper paper" data-field="p"></button>
+		 		</div>
+		 	</div>
 
-	 	<div class="field__description">
-	 		<p>Start the game! Make a choice...</p>
-	 		<p>Computer won! Make a choice...</p>
-	 		<p>You won! Make a choice...</p>
-	 		<p>Draw! Make a choice...</p>
-	 		<p>The computer is considering a move...</p>
-	 	</div>
-	 </main>
+		 	<div class="field__description">
+		 		<p class="lang-start-text">Start the game! Make a choice...</p>
+		 		<p class="lang-comp-text">Computer won! Make a choice...</p>
+		 		<p class="lang-user-text">You won! Make a choice...</p>
+		 		<p class="lang-draw-text">Draw! Make a choice...</p>
+		 		<p class="lang-move-text">The computer is considering a move...</p>
+		 	</div>
+		 </main>
 
-	 <footer class="footer">
-	 	<button type="button" class="button button--style new-game__btn">Start over</button>
-	 </footer>
+		 <footer class="footer">
+		 	<button type="button" class="button button--style new-game__button">Start over</button>
+		 </footer>		
+	</div>
 </body>
 
 </html>
