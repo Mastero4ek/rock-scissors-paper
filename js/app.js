@@ -31,11 +31,18 @@ window.addEventListener('load', function () {
 		  drawText = document.querySelector('.lang-draw-text'),
 		  moveText = document.querySelector('.lang-move-text'),
 		  congratulationText = document.querySelector('.lang-congratulation-text'),
+		  loseText = document.querySelector('.lang-lose-text'),
 
 		  newGameBtn = document.querySelector('.new-game__button');
 		  
 	let	countU = 0,
 		countC = 0;
+
+	function slideMenu() {
+		fullScreenBtn.classList.toggle('slide-fullscreen');
+		musicBtn.classList.toggle('slide-music');
+		langBtn.classList.toggle('slide-lang');
+	}
 
 	function toggleFullScreen() {
 		if (!document.fullscreenElement &&    // альтернативный стандартный метод
@@ -132,6 +139,7 @@ window.addEventListener('load', function () {
 			userText.style.display = "none";
 			drawText.style.display = "none";
 			congratulationText.style.display = "none";
+			loseText.style.display = "none";
 
 			newGameBtn.classList.add('inactive');
 
@@ -174,6 +182,7 @@ window.addEventListener('load', function () {
 				userText.style.display = "none";
 				drawText.style.display = "block";
 				congratulationText.style.display = "none";
+				loseText.style.display = "none";
 
 				drawMusic.play();
 
@@ -188,6 +197,7 @@ window.addEventListener('load', function () {
 				userText.style.display = "block";
 				drawText.style.display = "none";
 				congratulationText.style.display = "none";
+				loseText.style.display = "none";
 
 				countU++;
 				scoreUser.innerHTML = countU;
@@ -208,6 +218,7 @@ window.addEventListener('load', function () {
 				userText.style.display = "none";
 				drawText.style.display = "none";
 				congratulationText.style.display = "none";
+				loseText.style.display = "none";
 
 				countC++;
 				scoreComp.innerHTML = countC;
@@ -235,6 +246,7 @@ window.addEventListener('load', function () {
 		userText.style.display = "none";
 		drawText.style.display = "none";
 		congratulationText.style.display = "none";
+		loseText.style.display = "none";
 
 		scoreUser.innerHTML = '0';
 		scoreComp.innerHTML = '0';
@@ -247,13 +259,28 @@ window.addEventListener('load', function () {
 	}
 
 	function finishGame() {
-		if(countU === 5 || countC === 5) {
+		if(countU === 5) {
 			moveText.style.display = "none";
 			startText.style.display = "none";
 			compText.style.display = "none";
 			userText.style.display = "none";
 			drawText.style.display = "none";
 			congratulationText.style.display = "block";
+			loseText.style.display = "none";
+
+			fieldGame.classList.add('inactive');
+
+			setTimeout(() => {
+				newGameBtn.classList.remove('inactive');
+			},3000);
+		} else if(countC === 5) {
+			moveText.style.display = "none";
+			startText.style.display = "none";
+			compText.style.display = "none";
+			userText.style.display = "none";
+			drawText.style.display = "none";
+			congratulationText.style.display = "none";
+			loseText.style.display = "block";
 
 			fieldGame.classList.add('inactive');
 
@@ -265,6 +292,13 @@ window.addEventListener('load', function () {
 
 	backMusic.play();
 	backMusic.setAttribute('loop', '100000');
+
+	menuBtn.addEventListener('click', () => {
+		burgerImg.classList.toggle('hide');
+		crossImg.classList.toggle('show');
+
+		slideMenu();
+	});
 
 	fullScreenBtn.addEventListener('click', toggleFullScreen);
 

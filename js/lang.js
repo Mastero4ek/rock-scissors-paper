@@ -36,8 +36,12 @@ const langArr = {
 		"en": "The computer is considering a move...",
 	},
 	"congratulation-text": {
-		"ru": "Поздравляем! Вы победили искусственный интеллект!!! Начни новую игру!",
+		"ru": "Поздравляем! Вы победили искусственный интеллект!!! Начните новую игру!",
 		"en": "Сongratulations! You defeated artificial intelligence!!! Start a new game!",
+	},
+	"lose-text": {
+		"ru": "К сожалению искусственный интелект победил вас!!! Начните новую игру!",
+		"en": "Sorry! Artificial intelligence beat you!!! Start a new game!",
 	},
 	"new-button": {
 		"ru": "Начать заново",

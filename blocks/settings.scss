@@ -10,3 +10,24 @@
 	cursor: default;
 	pointer-events: none;
 }
+
+@media (max-width: 40em) {
+	.slide-fullscreen {
+		top: 26rem;
+		right: 0;
+	}
+}
+
+@media (max-width: 40em) {
+	.slide-music {
+		top: 44rem;
+		right: 0;
+	}
+}
+
+@media (max-width: 40em) {
+	.slide-lang {
+		top: 62rem;
+		right: 0;
+	}
+}
