@@ -84,19 +84,14 @@ window.addEventListener('load', function () {
 		}
 
 		langBtn.value = hash;
-		/*document.querySelector('title').innerHTML = langArr['title'][hash];
-
-		let langDone = document.querySelectorAll('.lang-done');
-		langDone.forEach((e) => {
-			e.innerHTML = langArr['done'][hash];
-		});
+		document.querySelector('title').innerHTML = langArr['title'][hash];
 
 		for(let key in langArr) {
 			let elem = document.querySelector('.lang-' + key);
 			if(elem) {
 				elem.innerHTML = langArr[key][hash];
 			}
-		}*/
+		}
 	}
 
 	function toogleMusic() {
