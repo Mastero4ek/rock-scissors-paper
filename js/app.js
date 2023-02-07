@@ -25,13 +25,7 @@ window.addEventListener('load', function () {
 		  fieldUser = document.querySelector('.user'),
 		  fieldComp = document.querySelector('.comp'),
 		  
-		  startText = document.querySelector('.lang-start-text'),
-		  compText = document.querySelector('.lang-comp-text'),
-		  userText = document.querySelector('.lang-user-text'),
-		  drawText = document.querySelector('.lang-draw-text'),
-		  moveText = document.querySelector('.lang-move-text'),
-		  congratulationText = document.querySelector('.lang-congratulation-text'),
-		  loseText = document.querySelector('.lang-lose-text'),
+		  descriptionText = document.querySelectorAll('.field__description-text'),
 
 		  newGameBtn = document.querySelector('.new-game__button');
 		  
@@ -132,16 +126,16 @@ window.addEventListener('load', function () {
 
 			target.classList.add('field__button--active');
 			fieldGame.classList.add('inactive');
-			
-			moveText.style.display = "block";
-			startText.style.display = "none";
-			compText.style.display = "none";
-			userText.style.display = "none";
-			drawText.style.display = "none";
-			congratulationText.style.display = "none";
-			loseText.style.display = "none";
-
 			newGameBtn.classList.add('inactive');
+
+			descriptionText.forEach((item) => {
+				const target = item.classList.contains('text-active');
+
+				if(target) {
+					item.classList.remove('text-active');
+					descriptionText[4].classList.add('text-active');
+				}
+			});
 
 			choiceComp(userCh);
 		}
@@ -176,13 +170,14 @@ window.addEventListener('load', function () {
 			case 'rr':
 			case 'ss':
 			case 'pp':
-				moveText.style.display = "none";
-				startText.style.display = "none";
-				compText.style.display = "none";
-				userText.style.display = "none";
-				drawText.style.display = "block";
-				congratulationText.style.display = "none";
-				loseText.style.display = "none";
+				descriptionText.forEach((item) => {
+					const target = item.classList.contains('text-active');
+
+					if(target) {
+						item.classList.remove('text-active');
+						descriptionText[3].classList.add('text-active');
+					}
+				});
 
 				drawMusic.play();
 
@@ -191,13 +186,14 @@ window.addEventListener('load', function () {
 			case 'rs':
 			case 'sp':
 			case 'pr':
-				moveText.style.display = "none";
-				startText.style.display = "none";
-				compText.style.display = "none";
-				userText.style.display = "block";
-				drawText.style.display = "none";
-				congratulationText.style.display = "none";
-				loseText.style.display = "none";
+				descriptionText.forEach((item) => {
+					const target = item.classList.contains('text-active');
+
+					if(target) {
+						item.classList.remove('text-active');
+						descriptionText[2].classList.add('text-active');
+					}
+				});
 
 				countU++;
 				scoreUser.innerHTML = countU;
@@ -212,13 +208,14 @@ window.addEventListener('load', function () {
 			case 'sr':
 			case 'ps':
 			case 'rp':
-				moveText.style.display = "none";
-				startText.style.display = "none";
-				compText.style.display = "block";
-				userText.style.display = "none";
-				drawText.style.display = "none";
-				congratulationText.style.display = "none";
-				loseText.style.display = "none";
+				descriptionText.forEach((item) => {
+					const target = item.classList.contains('text-active');
+
+					if(target) {
+						item.classList.remove('text-active');
+						descriptionText[1].classList.add('text-active');
+					}
+				});
 
 				countC++;
 				scoreComp.innerHTML = countC;
@@ -240,13 +237,14 @@ window.addEventListener('load', function () {
 		countU = 0;
 		countC = 0;
 
-		moveText.style.display = "none";
-		startText.style.display = "block";
-		compText.style.display = "none";
-		userText.style.display = "none";
-		drawText.style.display = "none";
-		congratulationText.style.display = "none";
-		loseText.style.display = "none";
+		descriptionText.forEach((item) => {
+			const target = item.classList.contains('text-active');
+
+			if(target) {
+				item.classList.remove('text-active');
+				descriptionText[0].classList.add('text-active');
+			}
+		});
 
 		scoreUser.innerHTML = '0';
 		scoreComp.innerHTML = '0';
@@ -259,39 +257,42 @@ window.addEventListener('load', function () {
 	}
 
 	function finishGame() {
-		if(countU === 5) {
-			moveText.style.display = "none";
-			startText.style.display = "none";
-			compText.style.display = "none";
-			userText.style.display = "none";
-			drawText.style.display = "none";
-			congratulationText.style.display = "block";
-			loseText.style.display = "none";
-
-			fieldGame.classList.add('inactive');
-
-			setTimeout(() => {
-				newGameBtn.classList.remove('inactive');
-			},3000);
-		} else if(countC === 5) {
-			moveText.style.display = "none";
-			startText.style.display = "none";
-			compText.style.display = "none";
-			userText.style.display = "none";
-			drawText.style.display = "none";
-			congratulationText.style.display = "none";
-			loseText.style.display = "block";
-
+		function inactive() {
 			fieldGame.classList.add('inactive');
 
 			setTimeout(() => {
 				newGameBtn.classList.remove('inactive');
 			},3000);
 		}
+
+		if(countU === 5) {
+			descriptionText.forEach((item) => {
+				const target = item.classList.contains('text-active');
+
+				if(target) {
+					item.classList.remove('text-active');
+					descriptionText[5].classList.add('text-active');
+				}
+			});
+			inactive();
+		} else if(countC === 5) {
+			descriptionText.forEach((item) => {
+				const target = item.classList.contains('text-active');
+
+				if(target) {
+					item.classList.remove('text-active');
+					descriptionText[6].classList.add('text-active');
+				}
+			});
+			inactive();
+		}
 	}
 
 	backMusic.play();
 	backMusic.setAttribute('loop', '100000');
+	fullScreenBtn.addEventListener('click', toggleFullScreen);
+	fieldUser.addEventListener('click', choiceUser);
+	newGameBtn.addEventListener('click', playGame);
 
 	menuBtn.addEventListener('click', () => {
 		burgerImg.classList.toggle('hide');
@@ -299,9 +300,7 @@ window.addEventListener('load', function () {
 
 		slideMenu();
 	});
-
-	fullScreenBtn.addEventListener('click', toggleFullScreen);
-
+	
 	musicBtn.addEventListener('click', () => {
 		soundImg.classList.toggle('hide');
 		muteImg.classList.toggle('show');
@@ -315,8 +314,4 @@ window.addEventListener('load', function () {
 
 		toggleLang();
 	});
-	
-	fieldUser.addEventListener('click', choiceUser);
-
-	newGameBtn.addEventListener('click', playGame);
 });
